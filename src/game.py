@@ -2,12 +2,13 @@ import random
 
 
 class Rockpaperscissors:
-    def __init__(self, name):
+    """Main calss for Rock paper scissors game."""
+    def __init__(self, name: str):
         self.choices = ['rock', 'paper', 'scissors']
         self.name = name
 
     def get_player_choices(self):
-        user_choices = input(f'Enter your choice: ({self.choices})')
+        user_choices: str = input(f'Enter your choice: ({self.choices})')
         if user_choices.lower() in self.choices:
             return user_choices
 
@@ -17,9 +18,15 @@ class Rockpaperscissors:
 
 
     def get_computer_choices(self):
+        """Get computer choice randomly from choices: Rock, Paper, Scissors"""
         return random.choice(self.choices )
 
-    def decide_winner(self, user_choices, camputer_choices):
+    def decide_winner(self, user_choices:str, camputer_choices: str)-> str:
+        """Decide the winner of the game based on user and computer choices.
+        :param user_chisecs: The choice of the user.
+        :param computer_choice: The choice of the computer.
+        :return: The result of the game. (who won!)
+        """
         if user_choices == camputer_choices:
             return "it's Tie!"
 
